@@ -7,7 +7,9 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![R-CMD-check](https://github.com/patrickbarks/xltest17/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/patrickbarks/xltest17/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/epicentre-msf/rpxl/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/epicentre-msf/rpxl/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/epicentre-msf/rpxl/branch/main/graph/badge.svg)](https://app.codecov.io/gh/epicentre-msf/rpxl?branch=main)
 <!-- badges: end -->
 
 Uses the Python library
