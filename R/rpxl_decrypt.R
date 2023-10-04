@@ -14,14 +14,13 @@
 #'
 #' @examples
 #' path_xlsx <- system.file("extdata", "xltest.xlsx", package = "rpxl")
-#' rpxl_decrypt(path_xlsx, password = "1234")
+#' decrypt_wb(path_xlsx, password = "1234")
 #'
 #' @importFrom reticulate import_builtins %as%
-#' @export rpxl_decrypt
-rpxl_decrypt <- function(path,
-                         password,
-                         path_out = tempfile(fileext = get_ext(path))) {
-
+#' @export decrypt_wb
+decrypt_wb <- function(path,
+                       password,
+                       path_out = tempfile(fileext = get_ext(path))) {
 
 
   if (!get_ext(path) %in% c(".xlsx", ".xlsb")) {
