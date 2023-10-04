@@ -20,11 +20,14 @@ jobs:
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
+          r-version: release
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: covr remotes reticulate
-          needs: coverage
+          extra-packages: |
+            any::covr
+            remotes
+            reticulate
 
       - uses: actions/setup-python@v4
         with:
