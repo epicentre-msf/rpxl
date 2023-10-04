@@ -16,7 +16,7 @@ install_rpxl(
 "r-rpxl".}
 
 \item{new_env}{Logical indicating whether to remove the existing virtual
-environment of the same names as \code{envname} before installing the required
+environment of the same name as \code{envname} before installing the required
 Python packages.}
 
 \item{method}{Installation method. Defaults to "auto" to automatically find a

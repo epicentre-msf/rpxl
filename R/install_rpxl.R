@@ -3,7 +3,7 @@
 #' @param envname Name of Python environment to install within. Defaults to
 #'   "r-rpxl".
 #' @param new_env Logical indicating whether to remove the existing virtual
-#'   environment of the same names as `envname` before installing the required
+#'   environment of the same name as `envname` before installing the required
 #'   Python packages.
 #' @param method Installation method. Defaults to "auto" to automatically find a
 #'   method that will work in the local environment. Note that the "virtualenv"
