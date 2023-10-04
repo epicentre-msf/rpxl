@@ -16,8 +16,8 @@
 #' @importFrom readxl read_xlsx readxl_progress
 #' @export rp_xlsx
 rp_xlsx <- function(path,
-                    sheet = NULL,
                     password,
+                    sheet = NULL,
                     range = NULL,
                     col_names = TRUE,
                     col_types = NULL,

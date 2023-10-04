@@ -6,8 +6,8 @@
 \usage{
 rp_xlsb(
   path,
-  sheet = NULL,
   password,
+  sheet = NULL,
   range = NULL,
   col_names = TRUE,
   col_types = NULL,
@@ -20,9 +20,9 @@ rp_xlsb(
 \arguments{
 \item{path}{Path to the xlsb workbook}
 
-\item{sheet}{Name or index of the sheet to read. If the sheet name is specified as part of the range, this parameter is ignored}
-
 \item{password}{Workbook password}
+
+\item{sheet}{Name or index of the sheet to read. If the sheet name is specified as part of the range, this parameter is ignored}
 
 \item{range}{A named range or a string representing an excel range (of the form Sheet!A1:D10) or a cellranger object}
 
@@ -47,6 +47,6 @@ decrypt the password-protected workbook
 }
 \examples{
 path_xlsb <- system.file("extdata", "xltest.xlsb", package = "rpxl")
-rp_xlsb(path_xlsb, sheet = 1, password = "1234")
+rp_xlsb(path_xlsb, password = "1234", sheet = 1)
 
 }

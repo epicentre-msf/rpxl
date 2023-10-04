@@ -55,7 +55,6 @@ install_rpxl()
 ```
 
 
-
 ## Usage
 
 ```{r}
@@ -78,7 +77,7 @@ sheet 1.
 
 ```{r}
 path_xlsb <- system.file("extdata", "xltest.xlsb", package = "rpxl")
-rp_xlsb(path_xlsb, sheet = 1L, password = "1234")
+rp_xlsb(path_xlsb, password = "1234", sheet = 1)
 ```
 
 To decrypt a password-protected Excel file and save it under a different

@@ -11,13 +11,13 @@
 #'
 #' @examples
 #' path_xlsb <- system.file("extdata", "xltest.xlsb", package = "rpxl")
-#' rp_xlsb(path_xlsb, sheet = 1, password = "1234")
+#' rp_xlsb(path_xlsb, password = "1234", sheet = 1)
 #'
 #' @importFrom readxlsb read_xlsb
 #' @export rp_xlsb
 rp_xlsb <- function(path,
-                    sheet = NULL,
                     password,
+                    sheet = NULL,
                     range = NULL,
                     col_names = TRUE,
                     col_types = NULL,

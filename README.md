@@ -81,7 +81,7 @@ specified (either with argument ‘sheet’ or ‘range’), whereas
 
 ``` r
 path_xlsb <- system.file("extdata", "xltest.xlsb", package = "rpxl")
-rp_xlsb(path_xlsb, sheet = 1L, password = "1234")
+rp_xlsb(path_xlsb, password = "1234", sheet = 1)
 ```
 
     ##   x  ext protected

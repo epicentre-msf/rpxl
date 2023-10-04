@@ -6,8 +6,8 @@
 \usage{
 rp_xlsx(
   path,
-  sheet = NULL,
   password,
+  sheet = NULL,
   range = NULL,
   col_names = TRUE,
   col_types = NULL,
@@ -23,12 +23,12 @@ rp_xlsx(
 \arguments{
 \item{path}{Path to the xls/xlsx file.}
 
+\item{password}{Workbook password}
+
 \item{sheet}{Sheet to read. Either a string (the name of a sheet), or an
 integer (the position of the sheet). Ignored if the sheet is specified via
 \code{range}. If neither argument specifies the sheet, defaults to the first
 sheet.}
-
-\item{password}{Workbook password}
 
 \item{range}{A cell range to read from, as described in \link[readxl]{cell-specification}.
 Includes typical Excel ranges like "B3:D87", possibly including the sheet
