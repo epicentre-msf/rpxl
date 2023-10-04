@@ -22,6 +22,9 @@ decrypt_wb <- function(path,
                        password,
                        path_out = tempfile(fileext = get_ext(path))) {
 
+  # python fns used below don't perform tilde expansion by default
+  path <- path.expand(path)
+  path_out <- path.expand(path_out)
 
   if (!get_ext(path) %in% c(".xlsx", ".xlsb")) {
     stop("Argument `path` must have extension .xlsx or .xlsb")
@@ -31,7 +34,7 @@ decrypt_wb <- function(path,
     stop("Arguments `path` and `path_out` do not have the same extension")
   }
 
-  if (normalizePath(path, mustWork = FALSE) == normalizePath(path_out, mustWork = FALSE)) {
+  if (path == path_out) {
     stop("Arguments `path` and `path_out` must not be the same")
   }
 
