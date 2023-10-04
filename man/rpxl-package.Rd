@@ -8,6 +8,14 @@
 \description{
 Uses the Python library msoffcrypto-tool to decrypt password-protected Excel files, which can then be read into R using readxl, readxlsb, or other packages.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/epicentre-msf/rpxl}
+  \item Report bugs at \url{https://github.com/epicentre-msf/rpxl/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Patrick Barks \email{patrick.barks@epicentre.msf.org}
 
