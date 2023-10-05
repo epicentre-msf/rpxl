@@ -38,7 +38,10 @@ reticulate::py_available(initialize = TRUE)
 
 If you don’t already have Python installed, it can be downloaded from
 www.python.org/downloads, or installed directly from R using the
-`install_python()` function in reticulate.
+`install_python()` function in reticulate. See also [Using Python with
+the RStudio
+IDE](https://support.posit.co/hc/en-us/articles/1500007929061-Using-Python-with-the-RStudio-IDE)
+for more information on configuring RStudio to use Python.
 
 ``` r
 reticulate::install_python()
@@ -63,15 +66,8 @@ to `read_xlsx()` in the [readxl](https://readxl.tidyverse.org/) package.
 
 ``` r
 path_xlsx <- system.file("extdata", "xltest.xlsx", package = "rpxl")
-rp_xlsx(path_xlsx, password = "1234")
+df <- rp_xlsx(path_xlsx, password = "1234")
 ```
-
-    ## # A tibble: 3 × 3
-    ##       x ext   protected
-    ##   <dbl> <chr> <chr>    
-    ## 1     1 xlsx  yes      
-    ## 2     2 xlsx  yes      
-    ## 3     3 xlsx  yes
 
 Read password-protected .xlsb files with function `rp_xlsb()`, a wrapper
 to `read_xlsb()` in the [readxlsb](https://github.com/velofrog/readxlsb)
@@ -81,13 +77,8 @@ specified (either with argument ‘sheet’ or ‘range’), whereas
 
 ``` r
 path_xlsb <- system.file("extdata", "xltest.xlsb", package = "rpxl")
-rp_xlsb(path_xlsb, password = "1234", sheet = 1)
+df <- rp_xlsb(path_xlsb, password = "1234", sheet = 1)
 ```
-
-    ##   x  ext protected
-    ## 1 1 xlsb       yes
-    ## 2 2 xlsb       yes
-    ## 3 3 xlsb       yes
 
 To decrypt a password-protected Excel file and save it under a different
 filename (without immediately reading it into R), you can use the
@@ -102,15 +93,8 @@ path_decrypted <- decrypt_wb(path_xlsx, password = "1234")
 The decrypted file can then be read into R in a separate step.
 
 ``` r
-readxl::read_xlsx(path_decrypted)
+df <- readxl::read_xlsx(path_decrypted)
 ```
-
-    ## # A tibble: 3 × 3
-    ##       x ext   protected
-    ##   <dbl> <chr> <chr>    
-    ## 1     1 xlsx  yes      
-    ## 2     2 xlsx  yes      
-    ## 3     3 xlsx  yes
 
 You may want to explicitly delete the decrypted file afterwards, if its
 contents are sensitive. Otherwise, if it’s a temporary file created with
@@ -120,5 +104,3 @@ session is closed.
 ``` r
 file.remove(path_decrypted)
 ```
-
-    ## [1] TRUE

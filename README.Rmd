@@ -40,11 +40,16 @@ reticulate::py_available(initialize = TRUE)
 
 If you don't already have Python installed, it can be downloaded from
 www.python.org/downloads, or installed directly from R using the
-`install_python()` function in reticulate.
+`install_python()` function in reticulate. See also [Using Python with the
+RStudio
+IDE](https://support.posit.co/hc/en-us/articles/1500007929061-Using-Python-with-the-RStudio-IDE)
+for more information on configuring RStudio to use Python.
 
 ```{r, eval=FALSE}
 reticulate::install_python()
 ```
+
+
 
 Finally, use the `rpxl::install_rpxl()` function to install the required Python
 dependencies.
@@ -66,7 +71,7 @@ Read password-protected .xlsx files with function `rp_xlsx()`, a wrapper to
 
 ```{r}
 path_xlsx <- system.file("extdata", "xltest.xlsx", package = "rpxl")
-rp_xlsx(path_xlsx, password = "1234")
+df <- rp_xlsx(path_xlsx, password = "1234")
 ```
 
 Read password-protected .xlsb files with function `rp_xlsb()`, a wrapper to
@@ -77,7 +82,7 @@ sheet 1.
 
 ```{r}
 path_xlsb <- system.file("extdata", "xltest.xlsb", package = "rpxl")
-rp_xlsb(path_xlsb, password = "1234", sheet = 1)
+df <- rp_xlsb(path_xlsb, password = "1234", sheet = 1)
 ```
 
 To decrypt a password-protected Excel file and save it under a different
@@ -93,14 +98,14 @@ path_decrypted <- decrypt_wb(path_xlsx, password = "1234")
 The decrypted file can then be read into R in a separate step.
 
 ```{r}
-readxl::read_xlsx(path_decrypted)
+df <- readxl::read_xlsx(path_decrypted)
 ```
 
 You may want to explicitly delete the decrypted file afterwards, if its contents
 are sensitive. Otherwise, if it's a temporary file created with `tempfile()`, it
 will be automatically deleted when the current R session is closed.
 
-```{r}
+```{r, eval=FALSE}
 file.remove(path_decrypted)
 ```
 
