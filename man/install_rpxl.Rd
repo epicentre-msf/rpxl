@@ -15,13 +15,12 @@ install_rpxl(
 \item{envname}{Name of Python environment to install within. Defaults to
 "r-rpxl".}
 
-\item{new_env}{Logical indicating whether to remove the existing virtual
-environment of the same name as \code{envname} before installing the required
-Python packages.}
+\item{new_env}{Logical indicating whether to remove an existing virtual
+environment, if it has the name as \code{envname}, before creating the new
+virtual environment and installing the required Python packages.}
 
 \item{method}{Installation method. Defaults to "auto" to automatically find a
-method that will work in the local environment. Note that the "virtualenv"
-method is not available on Windows.}
+method that will work in the local environment.}
 
 \item{...}{Additional arguments passed to \link[reticulate:py_install]{reticulate::py_install}}
 }
