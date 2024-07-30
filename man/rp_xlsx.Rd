@@ -2,7 +2,7 @@
 % Please edit documentation in R/rp_xlsx.R
 \name{rp_xlsx}
 \alias{rp_xlsx}
-\title{Read a protect .xlsx file}
+\title{Read a protect .xlsx or .xlsm file}
 \usage{
 rp_xlsx(
   path,
@@ -80,7 +80,7 @@ ensures column names are not empty and are unique.}
 A \code{\link[tibble:tbl_df-class]{tibble}}-style data frame
 }
 \description{
-A wrapper to \link[readxl:read_excel]{readxl::read_xlsx} with an initial call to \link{decrypt_wb} to
+A wrapper to \link[readxl:read_excel]{readxl::read_excel} with an initial call to \link{decrypt_wb} to
 decrypt the password-protected workbook
 }
 \examples{

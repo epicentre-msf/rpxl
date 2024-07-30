@@ -2,10 +2,11 @@
 #'
 #' Uses the Python library
 #' [msoffcrypto-tool](https://pypi.org/project/msoffcrypto-tool/) to decrypt
-#' password-protected Excel files (either .xlsx or .xlsb), which can then be
-#' read in with e.g. the [readxl] or [readxlsb][readxlsb::read_xlsb] R packages.
+#' password-protected Excel files (either .xlsx, .xlsm, or .xlsb), which can
+#' then be read in with e.g. the [readxl] or [readxlsb][readxlsb::read_xlsb] R
+#' packages.
 #'
-#' @param path Path to an Excel workbook file (either .xlsx or .xlsb)
+#' @param path Path to an Excel workbook file (either .xlsx, .xlsm, or .xlsb)
 #' @param password Workbook password
 #' @param path_out Output path for decrypted workbook
 #'
@@ -26,8 +27,8 @@ decrypt_wb <- function(path,
   path <- path.expand(path)
   path_out <- path.expand(path_out)
 
-  if (!get_ext(path) %in% c(".xlsx", ".xlsb")) {
-    stop("Argument `path` must have extension .xlsx or .xlsb")
+  if (!get_ext(path) %in% c(".xlsx", ".xlsm", ".xlsb")) {
+    stop("Argument `path` must have extension .xlsx, .xlsm, or .xlsb")
   }
 
   if (get_ext(path) != get_ext(path_out)) {

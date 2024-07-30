@@ -1,6 +1,6 @@
-#' Read a protect .xlsx file
+#' Read a protect .xlsx or .xlsm file
 #'
-#' A wrapper to [readxl::read_xlsx] with an initial call to [decrypt_wb] to
+#' A wrapper to [readxl::read_excel] with an initial call to [decrypt_wb] to
 #' decrypt the password-protected workbook
 #'
 #' @inheritParams readxl::read_xlsx
@@ -13,7 +13,7 @@
 #' path_xlsx <- system.file("extdata", "xltest.xlsx", package = "rpxl")
 #' rp_xlsx(path_xlsx, password = "1234")
 #'
-#' @importFrom readxl read_xlsx readxl_progress
+#' @importFrom readxl read_xlsx read_excel readxl_progress
 #' @export rp_xlsx
 rp_xlsx <- function(path,
                     password,
@@ -32,7 +32,7 @@ rp_xlsx <- function(path,
   path_decrypt <- decrypt_wb(path, password)
 
   out <- tryCatch(
-    readxl::read_xlsx(
+    readxl::read_excel(
       path = path_decrypt,
       sheet = sheet,
       range = range,

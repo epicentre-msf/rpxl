@@ -7,7 +7,7 @@
 decrypt_wb(path, password, path_out = tempfile(fileext = get_ext(path)))
 }
 \arguments{
-\item{path}{Path to an Excel workbook file (either .xlsx or .xlsb)}
+\item{path}{Path to an Excel workbook file (either .xlsx, .xlsm, or .xlsb)}
 
 \item{password}{Workbook password}
 
@@ -19,8 +19,9 @@ Path to the decrypted workbook file (same as argument \code{path_out})
 \description{
 Uses the Python library
 \href{https://pypi.org/project/msoffcrypto-tool/}{msoffcrypto-tool} to decrypt
-password-protected Excel files (either .xlsx or .xlsb), which can then be
-read in with e.g. the \link{readxl} or \link[readxlsb:read_xlsb]{readxlsb} R packages.
+password-protected Excel files (either .xlsx, .xlsm, or .xlsb), which can
+then be read in with e.g. the \link{readxl} or \link[readxlsb:read_xlsb]{readxlsb} R
+packages.
 }
 \examples{
 path_xlsx <- system.file("extdata", "xltest.xlsx", package = "rpxl")
