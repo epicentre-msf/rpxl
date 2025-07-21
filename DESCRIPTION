@@ -23,6 +23,8 @@ Imports:
     readxlsb
 Suggests: 
     testthat (>= 3.0.0)
+Remotes:
+    cran/readxlsb
 Config/testthat/edition: 3
 URL: https://github.com/epicentre-msf/rpxl
 BugReports: https://github.com/epicentre-msf/rpxl/issues
