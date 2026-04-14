@@ -28,32 +28,22 @@ Install from GitHub with:
 remotes::install_github("epicentre-msf/rpxl")
 ```
 
-Next, make sure Python is installed on your system. You can use the
-[reticulate](https://rstudio.github.io/reticulate/index.html) R package
-for this, which will already be installed alongside rpxl.
-
-``` r
-reticulate::py_available(initialize = TRUE)
-```
-
-If you don’t already have Python installed, it can be downloaded from
-www.python.org/downloads, or installed directly from R using the
-`install_python()` function in reticulate. See also [Using Python with
-the RStudio
-IDE](https://support.posit.co/hc/en-us/articles/1500007929061-Using-Python-with-the-RStudio-IDE)
-for more information on configuring RStudio to use Python.
+rpxl requires Python. If you don’t already have it, install it from
+[python.org/downloads](https://www.python.org/downloads) or directly
+from R:
 
 ``` r
 reticulate::install_python()
 ```
 
-Finally, use the `rpxl::install_rpxl()` function to install the required
-Python dependencies.
+See also [Using Python with the RStudio
+IDE](https://support.posit.co/hc/en-us/articles/1500007929061-Using-Python-with-the-RStudio-IDE)
+for more information on configuring RStudio to use Python.
 
-``` r
-library(rpxl)
-install_rpxl()
-```
+The required Python package
+([msoffcrypto-tool](https://pypi.org/project/msoffcrypto-tool/)) will be
+installed automatically by reticulate the first time an rpxl function is
+called.
 
 ## Usage
 

@@ -5,3 +5,4 @@
 ^archive$
 ^data-raw$
 ^codecov\.yml$
+^README\.html$

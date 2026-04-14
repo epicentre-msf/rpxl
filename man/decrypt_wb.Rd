@@ -20,7 +20,7 @@ Path to the decrypted workbook file (same as argument \code{path_out})
 Uses the Python library
 \href{https://pypi.org/project/msoffcrypto-tool/}{msoffcrypto-tool} to decrypt
 password-protected Excel files (either .xlsx, .xlsm, or .xlsb), which can
-then be read in with e.g. the \link{readxl} or \link[readxlsb:read_xlsb]{readxlsb} R
+then be read in with e.g. the \link[readxl:readxl-package]{readxl::readxl} or \link[readxlsb:read_xlsb]{readxlsb} R
 packages.
 }
 \examples{
