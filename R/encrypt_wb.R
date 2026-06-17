@@ -1,0 +1,61 @@
+#' Decrypt a password-protected Excel file
+#'
+#' Uses the Python library
+#' [msoffcrypto-tool](https://pypi.org/project/msoffcrypto-tool/) to decrypt
+#' password-protected Excel files (either .xlsx, .xlsm, or .xlsb), which can
+#' then be read in with e.g. the [readxl] or [readxlsb][readxlsb::read_xlsb] R
+#' packages.
+#'
+#' @param path Path to an Excel workbook file (either .xlsx, .xlsm, or .xlsb)
+#' @param password Workbook password
+#' @param path_out Output path for decrypted workbook
+#'
+#' @return
+#' Path to the decrypted workbook file (same as argument `path_out`)
+#'
+#' @examples
+#' path_xlsx <- system.file("extdata", "xltest.xlsx", package = "rpxl")
+#' decrypt_wb(path_xlsx, password = "1234")
+#'
+#' @importFrom reticulate import_builtins %as%
+#' @export encrypt_wb
+encrypt_wb <- function(path,
+                       password,
+                       path_out = tempfile(fileext = get_ext(path))) {
+
+
+  # python fns used below don't perform tilde expansion by default
+  path <- path.expand(path)
+  path_out <- path.expand(path_out)
+
+  if (!get_ext(path) %in% c(".xlsx", ".xlsm", ".xlsb")) {
+    stop("Argument `path` must have extension .xlsx, .xlsm, or .xlsb")
+  }
+
+  if (get_ext(path) != get_ext(path_out)) {
+    stop("Arguments `path` and `path_out` do not have the same extension")
+  }
+
+  if (path == path_out) {
+    stop("Arguments `path` and `path_out` must not be the same")
+  }
+
+  py <- reticulate::import_builtins()
+  # OOXMLFile <- reticulate::import("msoffcrypto.format.ooxml")
+
+  file_encrypted_rb <- py$open(path, "rb")
+
+  with(py$open(path_out, "wb") %as% file_decrypt, {
+    # OOXMLFile <- reticulate::import("msoffcrypto.format.ooxml")
+    # file_encrypted = msoffcrypto$format.ooxml(file_encrypted_rb)
+    # file_encrypted = OOXMLFile(file_encrypted_rb)
+    file_encrypted = msoffcrypto$OfficeFile(file_encrypted_rb)
+    # file_encrypted$load_key(password = password)
+    file_encrypted$encrypt(password, file_decrypt)
+  })
+
+  file_encrypted_rb$close()
+
+  return(path_out)
+}
+
