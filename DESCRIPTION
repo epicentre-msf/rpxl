@@ -18,7 +18,7 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Imports:
-    reticulate (>= 1.39.0),
+    reticulate (>= 1.41.0),
     readxl,
     readxlsb
 Suggests: 
